@@ -3,9 +3,7 @@ package com.danielairinei.project.controller;
 import com.danielairinei.project.entity.Product;
 import com.danielairinei.project.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,23 +18,23 @@ public class ProductController {
         return service.saveProduct(product);
     }
 
-    @PostMapping("/getProducts")
+    @GetMapping("/getProducts")
     public List<Product> getProducts(){
         return service.getProducts();
     }
 
-    @PostMapping("/getProductById/{id}")
-    public Product getProductById(int id){
+    @GetMapping("/getProductById/{id}")
+    public Product getProductById(@PathVariable int id){
         return service.getProductById(id);
     }
 
-    @PostMapping("/deleteProduct/{id}")
-    public String deleteProductById(int id){
+    @DeleteMapping("/deleteProduct/{id}")
+    public String deleteProductById(@PathVariable int id){
         return service.deleteProduct(id);
     }
 
-    @PostMapping("/updateProduct")
-    public Product updateProduct(Product product){
+    @PutMapping("/updateProduct")
+    public Product updateProduct(@RequestBody Product product){
         return service.updateProduct(product);
     }
 }
