@@ -12,24 +12,24 @@ public class ProductService {
     @Autowired
     private ProductRepository repository;
 
-    public Product saveProduct(Product product){
+    public Product saveProduct(Product product) {
         return repository.save(product);
     }
 
-    public List<Product> getProducts(){
+    public List<Product> getProducts() {
         return repository.findAll();
     }
 
-    public Product getProductById(int id){
+    public Product getProductById(int id) {
         return repository.findById(id).orElse(null);
     }
 
-    public String deleteProduct(int id){
+    public String deleteProduct(int id) {
         repository.deleteById(id);
         return "Deleted successfully!";
     }
 
-    public Product updateProduct(Product product){
+    public Product updateProduct(Product product) {
         Product existingProduct = repository.findById(product.getId()).orElse(null);
         existingProduct.setName(product.getName());
         existingProduct.setPrice(product.getPrice());

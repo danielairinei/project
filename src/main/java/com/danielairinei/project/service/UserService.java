@@ -13,24 +13,24 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
-    public User saveUser(User user){
+    public User saveUser(User user) {
         return repository.save(user);
     }
 
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return repository.findAll();
     }
 
-    public User getUserById(int id){
+    public User getUserById(int id) {
         return repository.findById(id).orElse(null);
     }
 
-    public String deleteUser(int id){
+    public String deleteUser(int id) {
         repository.deleteById(id);
         return "Successfully deleted user!";
     }
 
-    public User updateUser(User user){
+    public User updateUser(User user) {
         User existingUser = repository.findById(user.getId()).orElse(null);
         existingUser.setUsername(user.getUsername());
         existingUser.setPassword(user.getPassword());
