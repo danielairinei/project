@@ -11,6 +11,6 @@
 - more features to be added
 
 ### DATABASE SCHEME :
-![Database](Desktop/db_schema.png)
+![Database](https://i.postimg.cc/zDbXW70G/db-schema.png)
 
 
