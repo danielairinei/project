@@ -1,4 +1,4 @@
-package com.danielairinei.project.entity;
+package com.danielairinei.project.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,12 +12,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Admin")
-public class Admin {
+@Table(name = "Orders")
+public class Order {
 
     @Id
     @GeneratedValue
     private int id;
-    private String username;
-    private String password;
+    private int clientId;
+    private String status;
+    private int price;
+    private int productId;
 }

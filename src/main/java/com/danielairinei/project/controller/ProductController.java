@@ -1,6 +1,6 @@
 package com.danielairinei.project.controller;
 
-import com.danielairinei.project.entity.Product;
+import com.danielairinei.project.model.Product;
 import com.danielairinei.project.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

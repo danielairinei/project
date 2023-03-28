@@ -1,7 +1,8 @@
 package com.danielairinei.project.service;
 
-import com.danielairinei.project.entity.Order;
+import com.danielairinei.project.model.Order;
 import com.danielairinei.project.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class OrderService {
 
+    @Autowired
     private OrderRepository repository;
 
     public Order createOrder(Order order) {
