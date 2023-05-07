@@ -32,6 +32,9 @@ public class TestUserService {
 
     private List<User> userList;
 
+    /**
+     * This method is executed before each test, so I can have users and a list of users, necessary for testing.
+     */
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -42,6 +45,9 @@ public class TestUserService {
         userList.add(secondUser);
     }
 
+    /**
+     * JUnit test for addUser method
+     */
     @Test
     public void testAddUser() {
         User newUser = new User(4, "name", "pass", "email", "000-111", 5);
@@ -59,6 +65,9 @@ public class TestUserService {
         verify(userRepository, times(1)).save(newUser);
     }
 
+    /**
+     * JUnit test for getUsers method
+     */
     @Test
     public void testGetUsers() {
         when(userRepository.findAll()).thenReturn(userList);
@@ -68,6 +77,9 @@ public class TestUserService {
         Assertions.assertEquals(userList, users);
     }
 
+    /**
+     * JUnit test for getUsersById method
+     */
     @Test
     public void testGetUsersById() {
         when(userRepository.findById(1)).thenReturn(Optional.of(firstUser));
@@ -77,6 +89,9 @@ public class TestUserService {
         Assertions.assertEquals(firstUser, user);
     }
 
+    /**
+     * JUnit test deleteUser method
+     */
     @Test
     public void testDeleteUser() {
         when(userRepository.findById(1)).thenReturn(Optional.of(firstUser));
@@ -86,6 +101,9 @@ public class TestUserService {
         Assertions.assertTrue(true);
     }
 
+    /**
+     * JUnit test for updateUser method
+     */
     @Test
     public void testUpdateUser() {
         when(userRepository.findById(1)).thenReturn(Optional.of(firstUser));

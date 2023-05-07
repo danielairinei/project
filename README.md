@@ -7,13 +7,23 @@
 ### FEATURES :
 - administration of the available services from the admin page
 - management of user accounts, including their creation and modification
-- the abilty to procure a service through the platform
-- more features to be added
+- the ability to procure a service through the platform
+- a notifications system that allows users to be notified through the email every time an update is made to his account or an order
+- a notifications system that allows admins to be notified through the admin panel or by email every time a user makes an order
+- catalog with filters, allowing users to create filters for their needs
+
 
 ### DATABASE SCHEME :
 ![Database](https://i.postimg.cc/zDbXW70G/db-schema.png)
 
-### UPDATE :
-- added endpoints to the app: GET, POST, PUT, DELETE calls for managing the database
-- the endpoints for now, are available for the User, Admin and Product databases
+### ENDPOINTS :
+- USER : add, delete, update, getAll, getById
+- ADMIN : add, delete
+- ORDER : add, delete, update, getAll, getById
+- PRODUCT : add, delete, update, getAll, getById
 
+### JUNIT TESTING : 
+The JUnit testing was made for the service classes available, all methods were tested. Testing was made with the Mockito library for mocking the objects, mocking dependencies, and to make assertions about the behavior of the code
+By writing these tests we were able to catch and fix issues early in the development process saving time and effort in the long run.
+This also ensures reliability and easy maintenance of the code.
+JUnit tests were created for all the classes that include business logic.

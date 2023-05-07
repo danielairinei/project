@@ -31,6 +31,9 @@ public class TestOrderService {
 
     private List<Order> orderList;
 
+    /**
+     * This method is executed before each test, so I can have orders and a list of orders, necessary for testing.
+     */
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -43,6 +46,9 @@ public class TestOrderService {
         orderList.add(secondOrder);
     }
 
+    /**
+     * JUnit test for addOrder method
+     */
     @Test
     public void testAddOrder() {
         Order newOrder = new Order(1, 1, "processing", 100, 5);
@@ -59,6 +65,9 @@ public class TestOrderService {
         verify(orderRepository, times(1)).save(newOrder);
     }
 
+    /**
+     * JUnit test for getOrders method
+     */
     @Test
     public void testGetOrders() {
         when(orderRepository.findAll()).thenReturn(orderList);
@@ -68,6 +77,9 @@ public class TestOrderService {
         Assertions.assertEquals(orderList, orders);
     }
 
+    /**
+     * JUnit test for getOrderById method
+     */
     @Test
     public void testGetOrderById() {
         when(orderRepository.findById(1)).thenReturn(Optional.of(firstOrder));
@@ -77,6 +89,9 @@ public class TestOrderService {
         Assertions.assertEquals(firstOrder, order);
     }
 
+    /**
+     * JUnit test for deleteOrder method
+     */
     @Test
     public void testDeleteOrder() {
         when(orderRepository.existsById(1)).thenReturn(true);
@@ -86,6 +101,9 @@ public class TestOrderService {
         verify(orderRepository, times(1)).deleteById(1);
     }
 
+    /**
+     * JUnit test for updateOrder method
+     */
     @Test
     public void testUpdateOrder() {
         when(orderRepository.findById(2)).thenReturn(Optional.of(secondOrder));

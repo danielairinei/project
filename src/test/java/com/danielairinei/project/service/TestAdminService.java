@@ -10,9 +10,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
@@ -27,31 +24,36 @@ public class TestAdminService {
 
     private Admin admin;
 
-    private List<Admin> adminList;
-
+    /**
+     * This method is executed before each test, so I can have an admin, necessary for testing.
+     */
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        admin = new Admin(1,"test","test");
-
-        adminList = new ArrayList<>();
-
-        adminList.add(admin);
+        admin = new Admin(1, "test", "test");
     }
 
+    /**
+     * JUnit test for addAdmin method
+     */
     @Test
     public void testAddAdmin() {
         Admin newAdmin = new Admin(1, "admin1", "password1");
         when(adminRepository.save(newAdmin)).thenReturn(newAdmin);
 
+        // Act
         Admin addedAdmin = adminService.saveAdmin(newAdmin);
 
+        // Assert
         assertNotNull(addedAdmin);
         Assertions.assertEquals("admin1", addedAdmin.getUsername());
         Assertions.assertEquals("password1", addedAdmin.getPassword());
         verify(adminRepository, times(1)).save(newAdmin);
     }
 
+    /**
+     * JUnit test for deleteAdmin method
+     */
     @Test
     public void testDeleteAdmin() {
         when(adminRepository.existsById(1)).thenReturn(true);

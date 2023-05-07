@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Not a complete class, don't know if it's gonna be in the final version of the backend
+ */
 @Controller
 public class IndexController {
 

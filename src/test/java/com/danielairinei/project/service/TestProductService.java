@@ -31,6 +31,9 @@ public class TestProductService {
 
     private List<Product> productList;
 
+    /**
+     * This method is executed before each test, so I can have products and a list of products, necessary for testing.
+     */
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -44,6 +47,9 @@ public class TestProductService {
         productList.add(secondProduct);
     }
 
+    /**
+     * JUnit test for adding a product in the database using the service class
+     */
     @Test
     public void testAddProduct() {
         Product newProduct = new Product(1, "Product", "available", 100, "mockUrl", 5);
@@ -61,6 +67,9 @@ public class TestProductService {
         verify(productRepository, times(1)).save(newProduct);
     }
 
+    /**
+     * JUnit test for testing the method getProducts(), method that retrieves all products from the database
+     */
     @Test
     public void testGetProducts() {
         when(productRepository.findAll()).thenReturn(productList);
@@ -70,8 +79,11 @@ public class TestProductService {
         Assertions.assertEquals(productList, products);
     }
 
+    /**
+     * JUnit test for the method getProductById, used for retrieving a specific product from the database
+     */
     @Test
-    public void testGetOrderById() {
+    public void testGetProductById() {
         when(productRepository.findById(1)).thenReturn(Optional.of(firstProduct));
 
         Product product = productService.getProductById(1);
@@ -79,6 +91,9 @@ public class TestProductService {
         Assertions.assertEquals(firstProduct, product);
     }
 
+    /**
+     * JUnit test for the method deleteOrder
+     */
     @Test
     public void testDeleteOrder() {
         when(productRepository.existsById(1)).thenReturn(true);
@@ -88,6 +103,9 @@ public class TestProductService {
         verify(productRepository, times(1)).deleteById(1);
     }
 
+    /**
+     * JUnit test for updateProduct method
+     */
     @Test
     public void testUpdateProduct() {
         when(productRepository.findById(2)).thenReturn(Optional.of(secondProduct));
