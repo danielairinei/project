@@ -1,9 +1,6 @@
 package com.danielairinei.project.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,8 +15,16 @@ public class Order {
     @Id
     @GeneratedValue
     private int id;
-    private int clientId;
     private String status;
     private int price;
+
+    @ManyToOne
+    @JoinColumn(name = "productId", insertable = false, updatable = false)
+    private Product product;
     private int productId;
+
+    @ManyToOne
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    private User user;
+    private int userId;
 }

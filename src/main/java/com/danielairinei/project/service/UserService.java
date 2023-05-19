@@ -1,6 +1,8 @@
 package com.danielairinei.project.service;
 
-import com.danielairinei.project.event.NewUserEvent;
+import com.danielairinei.project.event.EventType;
+import com.danielairinei.project.event.UserEvent;
+import com.danielairinei.project.model.Order;
 import com.danielairinei.project.model.User;
 import com.danielairinei.project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,7 @@ public class UserService {
     private ApplicationEventPublisher applicationEventPublisher;
 
     public User saveUser(User user) {
-        //applicationEventPublisher.publishEvent(new NewUserEvent(this, user));
+        applicationEventPublisher.publishEvent(new UserEvent(EventType.CREATE, user));
         return repository.save(user);
     }
 
@@ -41,8 +43,15 @@ public class UserService {
         existingUser.setPassword(user.getPassword());
         existingUser.setPhone(user.getPhone());
         existingUser.setEmail(user.getEmail());
-        existingUser.setNumberOfOrders(user.getNumberOfOrders());
+        existingUser.setOrders(user.getOrders());
+        applicationEventPublisher.publishEvent(new UserEvent(EventType.UPDATE, user));
 
         return repository.save(existingUser);
+    }
+
+    public List<Order> getOrdersByUserId(int id) {
+        User user = repository.findById(id).orElse(null);
+
+        return user.getOrders();
     }
 }

@@ -1,5 +1,6 @@
 package com.danielairinei.project.controller;
 
+import com.danielairinei.project.model.Order;
 import com.danielairinei.project.model.User;
 import com.danielairinei.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class UserController {
 
     /**
      * Adds a user to the database
+     *
      * @param user
      * @return
      */
@@ -25,6 +27,7 @@ public class UserController {
 
     /**
      * Retrieves all the users from the users database
+     *
      * @return
      */
     @GetMapping("/getUsers")
@@ -34,6 +37,7 @@ public class UserController {
 
     /**
      * Retrieves a user from the users database by its id
+     *
      * @param id
      * @return
      */
@@ -44,6 +48,7 @@ public class UserController {
 
     /**
      * Deletes a user from the database using the id attribute
+     *
      * @param id
      * @return
      */
@@ -54,6 +59,7 @@ public class UserController {
 
     /**
      * Updates a user from the database
+     *
      * @param user
      * @return
      */
@@ -61,4 +67,16 @@ public class UserController {
     public User updateUser(@RequestBody User user) {
         return service.updateUser(user);
     }
+
+    /**
+     * Endpoint for retrieving the list of orders for a specific user
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/getOrderByUserId/{id}")
+    public List<Order> getOrdersByUserId(@PathVariable int id) {
+        return service.getOrdersByUserId(id);
+    }
+
 }
