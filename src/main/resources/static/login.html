@@ -28,7 +28,7 @@
         }
 
         .login-form {
-            width: 300px;
+            width: 400px;
             padding: 30px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -67,7 +67,7 @@
             font-size: 13px;
         }
 
-        .create-account-link{
+        .create-account-link {
             text-align: center;
             font-size: 17px;
         }
@@ -76,7 +76,7 @@
 <body>
 <!-- Navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">Welded Products</a>
+    <a class="navbar-brand" href="index.html">Welded Products</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -93,7 +93,7 @@
                 <a class="nav-link" href="#">Shop</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
@@ -106,12 +106,12 @@
 <div class="login-container">
     <div class="login-form">
         <h2>Login</h2>
-        <form>
+        <form id="loginForm">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username" required>
+                <input type="text" class="form-control" id="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" class="form-control" id="password" placeholder="Password" required>
             </div>
             <div class="forgot-password-link">
                 <a href="#">Forgot your password?</a>
@@ -128,7 +128,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
 
+        // Get the username and password input values
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // Make an AJAX request to the login endpoint
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/login");
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                if (xhr.responseText === "success") {// Show the login result
+                    window.location.href = "/index.html";
+                } else {
+                    alert(xhr.responseText);
+                }
+            } else {
+                alert("Login failed");
+            }
+        };
+        xhr.send("email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password));
+    });
+</script>
 
 </body>
 </html>

@@ -24,5 +24,5 @@ public class User {
     private String phone;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private ArrayList<Order> orders;
+    private List<Order> orders;
 }

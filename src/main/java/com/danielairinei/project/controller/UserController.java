@@ -1,5 +1,6 @@
 package com.danielairinei.project.controller;
 
+import com.danielairinei.project.model.Admin;
 import com.danielairinei.project.model.Order;
 import com.danielairinei.project.model.User;
 import com.danielairinei.project.service.UserService;
@@ -79,4 +80,17 @@ public class UserController {
         return service.getOrdersByUserId(id);
     }
 
+
+    @PostMapping("/login")
+    public String login(@RequestParam("email") String email, @RequestParam("password") String password){
+        List<User> userList = this.getUsers();
+        for (User user : userList) {
+            if (user.getEmail().equals(email)) {
+                if (user.getPassword().equals(password)) {
+                    return "success";
+                }
+            }
+        }
+        return "Invalid credentials";
+    }
 }

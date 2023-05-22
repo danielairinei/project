@@ -40,7 +40,7 @@ public class AdminController {
         return service.getAdmins();
     }
 
-    @PostMapping("/login")
+    @PostMapping("/admin/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
         List<Admin> adminList = this.getAdmins();
         for (Admin admin : adminList) {
@@ -57,7 +57,7 @@ public class AdminController {
      * This method is temporary, when an admin will logout, the session key for that admin will be removed, will add spring security logout if in time.
      * @return
      */
-    @PostMapping("/logout")
+    @PostMapping("/admin/logout")
     public String logout(){
         return "success";
     }
