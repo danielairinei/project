@@ -65,7 +65,7 @@
 <body>
 <!-- Navigation bar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">Welded Products</a>
+    <a class="navbar-brand" href="index.html">Welded Products</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,10 +76,10 @@
                 <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="login.html" id="login-link">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Shop</a>
+                <a class="nav-link" href="catalog.html">Shop</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -87,18 +87,52 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
             </li>
+            <li class="nav-item dropdown" id="userOptions"></li>
         </ul>
     </div>
 </nav>
 
-<!-- Product section -->
-<div class="container">
-    <div class="row" id="product-list"></div>
+<!-- Hero section -->
+<div class="jumbotron">
+    <h1>Welcome to Welded Products Online Shop</h1>
+    <p>Find high-quality welded products for various applications</p>
+    <a class="btn btn-secondary" href="catalog.html">Shop Now</a>
 </div>
 
+<!-- Product section -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="images/placeholder.png" alt="Product 1">
+                <h4>Product 1</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a class="btn btn-secondary" href="#">View Details</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="images/placeholder.png" alt="Product 2">
+                <h4>Product 2</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a class="btn btn-secondary" href="#">View Details</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="images/placeholder.png" alt="Product 3">
+                <h4>Product 3</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a class="btn btn-secondary" href="#">View Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/login.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="js/catalog.js"></script>
 </body>
 </html>

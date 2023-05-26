@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welded Products Online Shop - Login</title>
+    <title>Welded Products Online Shop - Register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -20,14 +20,14 @@
             cursor: pointer;
         }
 
-        .login-container {
+        .register-container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
 
-        .login-form {
+        .register-form {
             width: 400px;
             padding: 30px;
             border: 1px solid #ccc;
@@ -36,7 +36,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .login-form h2 {
+        .register-form h2 {
             text-align: center;
             margin-bottom: 20px;
         }
@@ -59,16 +59,10 @@
             border-color: #0062cc;
         }
 
-        .forgot-password-link,
-        .create-account-link {
+        .login-link {
             margin-top: 10px;
             margin-bottom: 10px;
             color: #007bff;
-            font-size: 13px;
-        }
-
-        .create-account-link {
-            text-align: center;
             font-size: 17px;
         }
     </style>
@@ -87,10 +81,10 @@
                 <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="login.html">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Shop</a>
+                <a class="nav-link" href="catalog.html">Shop</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -102,23 +96,24 @@
     </div>
 </nav>
 
-<!-- Login section -->
-<div class="login-container">
-    <div class="login-form">
-        <h2>Login</h2>
-        <form id="loginForm">
+<!-- Registration section -->
+<div class="register-container">
+    <div class="register-form">
+        <h2>Register</h2>
+        <form id="registerForm">
             <div class="form-group">
-                <input type="text" class="form-control" id="email" placeholder="Email" required>
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" id="password" placeholder="Password" required>
             </div>
-            <div class="forgot-password-link">
-                <a href="#">Forgot your password?</a>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-            <div class="create-account-link">
-                <a href="register.html">Client nou?</a>
+
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <div class="login-link">
+                <a href="login.html">Already have an account? Login</a>
             </div>
         </form>
     </div>
@@ -129,31 +124,33 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
-    document.getElementById("loginForm").addEventListener("submit", function (event) {
+    document.getElementById("registerForm").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent the default form submission
 
         // Get the username and password input values
         var email = document.getElementById("email").value;
+        var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
+
+        var userData = {
+            email: email,
+            username: username,
+            password: password
+        };
 
         // Make an AJAX request to the login endpoint
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/login");
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.open("POST", "http://localhost:8080/addUser");
+        xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onload = function () {
             if (xhr.status === 200) {
-                if (xhr.responseText === "success") {// Show the login result
-                    window.location.href = "/index.html";
-                } else {
-                    alert(xhr.responseText);
-                }
+                alert("account created")
             } else {
-                alert("Login failed");
+                alert("registration failed");
             }
         };
-        xhr.send("email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password));
+        xhr.send(JSON.stringify(userData));
     });
 </script>
-
 </body>
 </html>

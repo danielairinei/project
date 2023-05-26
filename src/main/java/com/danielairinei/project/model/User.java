@@ -22,6 +22,7 @@ public class User {
     private String password;
     private String email;
     private String phone;
+    private boolean isLoggedIn;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private List<Order> orders;
