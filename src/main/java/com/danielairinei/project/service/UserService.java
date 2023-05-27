@@ -43,15 +43,14 @@ public class UserService {
         existingUser.setPassword(user.getPassword());
         existingUser.setPhone(user.getPhone());
         existingUser.setEmail(user.getEmail());
-        existingUser.setOrders(user.getOrders());
         applicationEventPublisher.publishEvent(new UserEvent(EventType.UPDATE, user));
 
         return repository.save(existingUser);
     }
 
-    public List<Order> getOrdersByUserId(int id) {
-        User user = repository.findById(id).orElse(null);
-
-        return user.getOrders();
-    }
+//    public List<Order> getOrdersByUserId(int id) {
+//        User user = repository.findById(id).orElse(null);
+//
+//        return user.getOrders();
+//    }
 }

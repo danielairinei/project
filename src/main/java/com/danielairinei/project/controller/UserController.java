@@ -1,7 +1,5 @@
 package com.danielairinei.project.controller;
 
-import com.danielairinei.project.model.Admin;
-import com.danielairinei.project.model.Order;
 import com.danielairinei.project.model.User;
 import com.danielairinei.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,20 +68,8 @@ public class UserController {
         return service.updateUser(user);
     }
 
-    /**
-     * Endpoint for retrieving the list of orders for a specific user
-     *
-     * @param id
-     * @return
-     */
-    @GetMapping("/getOrderByUserId/{id}")
-    public List<Order> getOrdersByUserId(@PathVariable int id) {
-        return service.getOrdersByUserId(id);
-    }
-
-
     @PostMapping("/login")
-    public String login(@RequestParam("email") String email, @RequestParam("password") String password){
+    public String login(@RequestParam("email") String email, @RequestParam("password") String password) {
         List<User> userList = this.getUsers();
         for (User user : userList) {
             if (user.getEmail().equals(email)) {

@@ -17,14 +17,7 @@ public class Order {
     private int id;
     private String status;
     private int price;
-
-    @ManyToOne
-    @JoinColumn(name = "productId", insertable = false, updatable = false)
-    private Product product;
     private int productId;
-
-    @ManyToOne
-    @JoinColumn(name = "userId", insertable = false, updatable = false)
-    private User user;
-    private int userId;
+    private String userEmail;
+    private String phoneNumber;
 }

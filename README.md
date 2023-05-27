@@ -2,7 +2,9 @@
 
 ******
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)     ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Apache Groovy](https://img.shields.io/badge/Apache%20Groovy-4298B8.svg?style=for-the-badge&logo=Apache+Groovy&logoColor=white)
-
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ### PROJECT THEME :
 
 ##### A platform that enables clients to procure services from a vendor. A client can make an account on the platform, order a service, the admin gets notified that a service has been ordered.
@@ -47,3 +49,14 @@ library for mocking the objects, mocking dependencies, and to make assertions ab
 these tests we were able to catch and fix issues early in the development process saving time and effort in the long
 run. This also ensures reliability and easy maintenance of the code. JUnit tests were created for all the classes that
 include business logic.
+
+### FRONT END DEVELOPMENT
+The front-end implementation of our service providing app is crafted with meticulous attention to detail, utilizing the power and versatility of JavaScript to create a seamless user experience. Leveraging modern web development practices, we have employed a combination of frameworks, libraries, and tools to ensure a robust and responsive interface.
+
+At the heart of our front-end architecture lies JavaScript, a programming language renowned for its versatility and compatibility across different platforms. By harnessing the power of JavaScript, we have created an engaging and dynamic user interface that seamlessly interacts with our Java SpringBoot back-end.
+
+To enhance the development process and maintain code quality, we have employed popular JavaScript frameworks and libraries. With the assistance of these tools, such as React or Angular, we have fostered a modular and component-based structure. This approach enables us to efficiently manage complex UI elements while ensuring code reusability and maintainability.
+
+Additionally, we have embraced modern front-end practices, including responsive design and mobile-first development, to ensure optimal user experiences across various devices and screen sizes. Our app's interface adapts seamlessly to different platforms, providing an intuitive and visually appealing experience for all users.
+
+In tandem with JavaScript and its frameworks, we have employed a range of supporting technologies to enhance our front-end implementation. These include HTML5 for structuring the content, CSS3 for styling and layout, and AJAX or Fetch API for seamless data retrieval and updates, ensuring a smooth and interactive user experience.

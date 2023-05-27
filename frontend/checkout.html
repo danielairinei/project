@@ -22,14 +22,9 @@
             cursor: pointer;
         }
 
-        .jumbotron {
-            background-color: #f9f9f9;
-            text-align: center;
-            padding: 50px 0;
-            margin-bottom: 0;
-        }
-
         .product-card {
+            height: 100%;
+            margin-top: 70px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -52,38 +47,40 @@
             margin-bottom: 0;
         }
 
-        .footer {
+        .checkout-form {
+            margin-top: 70px;
+            height: 100%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .checkout-form h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .checkout-form input,
+        .checkout-form select {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .checkout-form button[type="submit"] {
+            width: 100%;
+            font-size: 20px;
+            padding: 15px;
             background-color: #333;
             color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .btn-secondary {
-            margin-top: 10px;
-        }
-
-        .container {
-            margin-top: 40px;
-        }
-
-        .row {
-            margin-top: 40px;
-        }
-
-        .pager-class {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .pager-class button {
-            margin-right: 10px;
-        }
-
-        .pager-class button:last-child {
-            margin-right: 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -102,10 +99,10 @@
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="login.html" id="login-link">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shop</a>
+                    <a class="nav-link" href="catalog.html">Shop</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
@@ -113,21 +110,41 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">About Us</a>
                 </li>
+                <li class="nav-item dropdown" id="userOptions"></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Product section -->
+    <!-- Checkout section -->
     <div class="container">
-        <h1 class="text-left">Catalog</h1>
-        <div class="row" id="product-list"></div>
-        <div class="pager-class" id="pager"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="checkout-form">
+                    <h2>Checkout</h2>
+                    <form id="checkoutForm">
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="tel" id="phone" placeholder="Phone Number" required>
+                        <input type="text" placeholder="City" required>
+                        <button type="submit">Submit Order</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-card">
+                    <img src="images/placeholder.png" alt="Product">
+                    <h4 id="product-title">Product Title</h4>
+                    <p id="product-price">Price: $</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="js/catalog.js"></script>
+    <script src="js/checkout.js"></script>
 </body>
+
 </html>

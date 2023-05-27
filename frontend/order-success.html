@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welded Products Online Shop</title>
+    <title>Order Success</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -20,45 +20,33 @@
             cursor: pointer;
         }
 
-        .jumbotron {
-            background-color: #f9f9f9;
-            text-align: center;
-            padding: 50px 0;
-            margin-bottom: 0;
+        .centered-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
         }
 
-        .product-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 20px;
+        .checkmark {
+            font-size: 100px;
+            color: #333;
             margin-bottom: 20px;
         }
 
-        .product-card img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
+        .checkmark-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .product-card h4 {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .product-card p {
-            margin-bottom: 0;
-        }
-
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
+        .success-message {
+            font-size: 24px;
+            color: #333;
             text-align: center;
-        }
-
-        .btn-secondary {
-            margin-top: 10px;
+            max-width: 700px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -92,45 +80,18 @@
     </div>
 </nav>
 
-<!-- Hero section -->
-<div class="jumbotron">
-    <h1>Welcome to Welded Products Online Shop</h1>
-    <p>Find high-quality welded products for various applications</p>
-    <a class="btn btn-secondary" href="catalog.html">Shop Now</a>
-</div>
-
-<!-- Product section -->
+<!-- Checkmark section -->
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <div class="product-card">
-                <img src="images/placeholder.png" alt="Product 1">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a class="btn btn-secondary" href="#">View Details</a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="product-card">
-                <img src="images/placeholder.png" alt="Product 2">
-                <h4>Product 2</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a class="btn btn-secondary" href="#">View Details</a>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="product-card">
-                <img src="images/placeholder.png" alt="Product 3">
-                <h4>Product 3</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a class="btn btn-secondary" href="#">View Details</a>
+        <div class="col-md-12">
+            <div class="centered-text">
+                <span class="checkmark">&#10003;</span>
+                <p class="success-message">Your order has been submitted successfully. Please check your email for more information!</p>
             </div>
         </div>
     </div>
 </div>
 
-
-<script src="js/login.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
