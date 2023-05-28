@@ -12,6 +12,7 @@ public class UserCreationObserver implements ApplicationListener<UserEvent> {
     /**
      * Observer is triggered whenever a new user is created, the eventType attribute is used
      * so that not every observer is triggered whenever an UserEvent is happening.
+     *
      * @param userEvent
      */
     @Override
@@ -22,4 +23,3 @@ public class UserCreationObserver implements ApplicationListener<UserEvent> {
         }
     }
 }
-

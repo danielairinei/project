@@ -16,6 +16,7 @@ public class OrderController {
 
     /**
      * Method used for creating an order in the Order database.
+     *
      * @param order
      * @return
      */
@@ -26,6 +27,7 @@ public class OrderController {
 
     /**
      * Method used for getting the list of orders.
+     *
      * @return
      */
     @GetMapping("/getOrders")
@@ -35,6 +37,7 @@ public class OrderController {
 
     /**
      * Method used for getting a specific order by the id attribute
+     *
      * @param id
      * @return
      */
@@ -45,6 +48,7 @@ public class OrderController {
 
     /**
      * Method used for deleting a specific order using the order id
+     *
      * @param id
      * @return
      */
@@ -55,6 +59,7 @@ public class OrderController {
 
     /**
      * Method used for updating an order
+     *
      * @param order
      * @return
      */

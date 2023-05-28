@@ -11,7 +11,8 @@ public class UserUpdateObserver implements ApplicationListener<UserEvent> {
 
     /**
      * Observer is triggered whenever a user is updated, the eventType attribute is used
-     *      * so that not every observer is triggered whenever an UserEvent is happening.
+     * so that not every observer is triggered whenever an UserEvent is happening.
+     *
      * @param userEvent
      */
     @Override

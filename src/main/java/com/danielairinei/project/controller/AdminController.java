@@ -4,7 +4,6 @@ import com.danielairinei.project.model.Admin;
 import com.danielairinei.project.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin(origins = "http://127.0.0.1:5500")
@@ -36,11 +35,23 @@ public class AdminController {
         return service.deleteAdmin(id);
     }
 
+    /**
+     * Retrieves admins from db
+     *
+     * @return
+     */
     @GetMapping("/getAdmins")
     public List<Admin> getAdmins() {
         return service.getAdmins();
     }
 
+    /**
+     * Admin login implementation
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     @PostMapping("/admin/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
         List<Admin> adminList = this.getAdmins();
@@ -56,6 +67,7 @@ public class AdminController {
 
     /**
      * This method is temporary, when an admin will logout, the session key for that admin will be removed, will add spring security logout if in time.
+     *
      * @return
      */
     @PostMapping("/admin/logout")

@@ -16,6 +16,7 @@ public class ProductController {
 
     /**
      * Add a product to DB.
+     *
      * @param product
      * @return
      */
@@ -24,9 +25,10 @@ public class ProductController {
         return service.saveProduct(product);
     }
 
-
     /**
      * Gets products from DB.
+     *
+     * @return
      */
     @GetMapping("/getProducts")
     public List<Product> getProducts() {
@@ -35,6 +37,9 @@ public class ProductController {
 
     /**
      * Gets a product from DB specified by its ID.
+     *
+     * @param id
+     * @return
      */
     @GetMapping("/getProductById/{id}")
     public Product getProductById(@PathVariable int id) {
@@ -43,6 +48,9 @@ public class ProductController {
 
     /**
      * Delete a product from DB specified by its ID.
+     *
+     * @param id
+     * @return
      */
     @DeleteMapping("/deleteProduct/{id}")
     public String deleteProductById(@PathVariable int id) {
@@ -51,6 +59,9 @@ public class ProductController {
 
     /**
      * Updates a product from the DB.
+     *
+     * @param product
+     * @return
      */
     @PutMapping("/updateProduct")
     public Product updateProduct(@RequestBody Product product) {

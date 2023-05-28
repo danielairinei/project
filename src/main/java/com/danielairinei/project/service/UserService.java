@@ -2,13 +2,11 @@ package com.danielairinei.project.service;
 
 import com.danielairinei.project.event.EventType;
 import com.danielairinei.project.event.UserEvent;
-import com.danielairinei.project.model.Order;
 import com.danielairinei.project.model.User;
 import com.danielairinei.project.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -47,10 +45,4 @@ public class UserService {
 
         return repository.save(existingUser);
     }
-
-//    public List<Order> getOrdersByUserId(int id) {
-//        User user = repository.findById(id).orElse(null);
-//
-//        return user.getOrders();
-//    }
 }
